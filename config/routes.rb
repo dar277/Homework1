@@ -1,4 +1,7 @@
 Homework::Application.routes.draw do
 
-get "/dice/roll" => "dice/roll"
+  get "/dice/roll"
+
+  get "books/list"
+
 end
