@@ -1,4 +1,4 @@
-Book:
-  -title:string
-  -author: string
 
+Book:
+- title: string
+- author: string
