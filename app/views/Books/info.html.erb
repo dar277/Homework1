@@ -1,0 +1,25 @@
+<% the_id = params["id"] %>
+<% the_book = Book.read(the_id) %>
+
+
+<h2> Book: <%= the_book["title"] %> </h2>
+
+<li>
+Price: <%= the_book["price"] %>
+</li>
+
+<li>
+Average rating: <%= Review.where("title" =>the_book["title"]).average("stars") %>
+</li>
+
+<% all_reviews = Review.read("title" => the_book["title"]) %>
+
+<h3> Reviews </h3>
+<% all_reviews.each do |feedback| %>
+  <tr>
+
+<li>
+    <td> <%= feedback ["review"] %> </td>
+</li>
+  </tr>
+<% end %>

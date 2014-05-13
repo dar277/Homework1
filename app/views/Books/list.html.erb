@@ -1,48 +1,37 @@
-<h1>Reading list<h1>
+<h2> <font face="verdana" color=green> Book List </font> </h2>
 
 
 <% all_books = Book.read %>
-<table style="border:1px solid black;border-collapse:collapse;">
-  <thead>
-  <tr>
-<th style="border:1px solid red;">Title</th><th style="border:1px solid red;">Author</th>
-  </tr>
-  </thead>
+
+<table style="width:300px">
+
+<thead>
+<tr>
+   <th>Title</th>
+   <th>Author</th>
+   <th>Rating</th>
+   <th>Price</th>
+
+</tr>
+</thead>
+
 <tbody>
-<% all_books.each do |book| %>
+  <% all_books.each do |book| %>
+     <% name = book["title"] %>
+
+
+  <% rating = Review.where("title" => book["title"]).average("stars") %>
+
   <tr>
-    <td>  </td>
-    <td style="border:1px solid red;"><%= book["title"] %></td>
-    <td style="border:1px solid red;"><%= book["author"] %></td>
-    <td>  </td>
-  </tr>
+
+    <td><%= link_to name, "/books/#{book["id"]}"  %></td>
+    <td><%= book["author"] %></td>
+    <td><%= rating %></td>
+    <td><%= book["price"] %></td
+
+
+
+</tr>
 <% end %>
 </tbody>
-</table>
-
-
-
-<tr>
-
-</tr>
-<tr>
-
-</tr>
-<tr>
-
-</tr>
-</table>
-
-
-<!-- Codes by HTML.am -->
-<table style="border:1px solid black;border-collapse:collapse;">
-<tr>
-<th style="border:1px solid red;">Table Header</th><th style="border:1px solid red;">Table Header</th>
-</tr>
-<tr>
-<td style="border:1px solid red;">Table cell 1</td><td style="border:1px solid red;">Table cell 2</td>
-</tr>
-<tr>
-<td style="border:1px solid red;">Table cell 3</td><td style="border:1px solid red;">Table cell 4</td>
-</tr>
 </table>
